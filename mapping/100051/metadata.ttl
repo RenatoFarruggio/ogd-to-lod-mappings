@@ -17,6 +17,9 @@
     schema:name "datum_zeit" ;
     schema:description "Zeitstempel in UTC" .
 
+<https://ld.bs.ch/cube/property/RAUM> a cube:KeyDimension ;
+    schema:name "spatial_coverage" .
+
 <https://ld.bs.ch/cube/property/o3_ug_m3> a cube:MeasureDimension ;
     schema:name "o3_ug_m3" ;
     schema:description "Ozon" ;
