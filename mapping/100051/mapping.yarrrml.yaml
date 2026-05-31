@@ -20,11 +20,11 @@ mappings:
   observations:
     sources:
       - csvSource
-    s: "ex-obs:$(datum_zeit)_Basel-Binningen"
+    s: "ex-obs:$(datum_zeit)_$(timestamp_text)"
     po:
-      - [a, cube:Observation]
+      - [a, "cube:Observation"]
       - ["ex-property:ZEIT", "$(datum_zeit)", xsd:dateTime]
-      - ["ex-property:RAUM", "ex-code:Basel-Binningen~iri"]
+      - ["ex-property:ZEIT_text", "$(timestamp_text)", xsd:string]
       - ["ex-property:o3_ug_m3", "$(o3_ug_m3)", xsd:decimal]
       - ["ex-property:no2_ug_m3", "$(no2_ug_m3)", xsd:decimal]
       - ["ex-property:pm10_ug_m3", "$(pm10_ug_m3)", xsd:decimal]
@@ -36,16 +36,10 @@ mappings:
       - ["ex-property:so2_ug_m3", "$(so2_ug_m3)", xsd:decimal]
       - ["ex-property:nox_ug_m3_eq_no2", "$(nox_ug_m3_eq_no2)", xsd:decimal]
       - ["ex-property:temp_c", "$(temp_c)", xsd:decimal]
-  raumCodes:
-    sources:
-      - csvSource
-    s: "ex-code:Basel-Binningen"
-    po:
-      - [a, schema:DefinedTerm]
-      - ["schema:name", "Basel-Binningen"]
+
   observationSetLink:
     sources:
       - csvSource
     s: ex:observation-set
     po:
-      - [cube:observation, "ex-obs:$(datum_zeit)_Basel-Binningen~iri"]
+      - [cube:observation, "ex-obs:$(datum_zeit)_$(timestamp_text)~iri"]
